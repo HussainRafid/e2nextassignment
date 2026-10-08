@@ -10,7 +10,9 @@ This repo contains two main folders (client built with Next Js, and server built
 
 1-DB:
   $ docker compose up -d
-  $ mariadb -u root -p < database/schema.sql
+  $ mariadb -u root -p < database/schema.sql 
+  if the line above does not work, please use:
+  $ Get-Content database/schema.sql | mariadb -u root -p
 
 
 
