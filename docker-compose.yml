@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+      MARIADB_DATABASE: e2next_db
+    ports:
+      - "3300:3300"
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+
+volumes:
+  dbdata:
